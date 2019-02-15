@@ -22,21 +22,31 @@
 //-------------------------------------------------------------------------//
 namespace exam
 {
-//-------------------------------------------------------------------------//
-    //!<
-    struct symbol_info_t
+    namespace common
     {
-        //!< Keeps a keypad number.
-        unsigned char keypad = 0;
-        //!< Keeps a count of number.
-        unsigned char count = 0;
-    };
-    //!< Keeps a map of symbol and symbol info.
-    using symbols_t = std::map<char, symbol_info_t>;
 //-------------------------------------------------------------------------//
-    std::ostream & operator<<(std::ostream & stream, stream, const symbol_info_t & symbol);
-    std::ostream & operator<<(std::ostream & stream, stream, const symbols_t & symbols);
+        //!<
+        struct symbol_info_t
+        {
+            //!< Keeps a keypad number.
+            unsigned char keypad = 0;
+            //!< Keeps a count of number.
+            unsigned char count = 0;
+
+            /**
+             *
+             * @param key
+             * @param count
+             */
+            symbol_info_t(unsigned char key, unsigned char count);
+        };
+        //!< Keeps a map of symbol and symbol info.
+        using symbols_t = std::map<char, symbol_info_t>;
 //-------------------------------------------------------------------------//
+        std::ostream & operator<<(std::ostream & stream, const symbol_info_t & symbol);
+        std::ostream & operator<<(std::ostream & stream, const symbols_t & symbols);
+//-------------------------------------------------------------------------//
+    }; // namespace common
 }; // namespace exam
 //-------------------------------------------------------------------------//
 #endif // __SYMBOL_INFO_H_AAC69A9B_D5AC_4681_8D18_B9BFC91A7DD7__
