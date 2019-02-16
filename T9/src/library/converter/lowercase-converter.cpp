@@ -20,7 +20,7 @@ namespace exam
 //-------------------------------------------------------------------------//
         auto lowercase_converter::encode(const std::string & text) const -> std::string
         {
-            unsigned char prev_key = 0;
+            unsigned char prev_key = -1;
             std::ostringstream buffer;
 
             for (const auto & symbol : text)
