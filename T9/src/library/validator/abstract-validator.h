@@ -1,7 +1,7 @@
 /*!==========================================================================
 * \file
-* - Program:       gtest-t9
-* - File:          gtest-converter.h
+* - Program:       T9
+* - File:          abstract-validator.h
 * - Created:       02/15/2019
 * - Author:        Vitaly Bulganin
 * - Description:
@@ -14,24 +14,29 @@
 ===========================================================================*/
 #pragma once
 //-------------------------------------------------------------------------//
-#ifndef __GTEST_CONVERTER_H_A3CFE15C_F664_4134_991E_27844C1A9BC4__
-#define __GTEST_CONVERTER_H_A3CFE15C_F664_4134_991E_27844C1A9BC4__
+#ifndef T9_SPELLING_ABSTRACT_VALIDATOR_H
+#define T9_SPELLING_ABSTRACT_VALIDATOR_H
 //-------------------------------------------------------------------------//
-#include <fstream>
-#include <stdexcept>
+#include <src/library/common/validatable.h>
 //-------------------------------------------------------------------------//
-#include <gtest/gtest.h>
-//-------------------------------------------------------------------------//
-#include "../../src/library/converter/converter-factory.h"
-//-------------------------------------------------------------------------//
-TEST(TestT9, lowercaseConverter)
+namespace exam
 {
-    exam::common::converter_ptr_t converter = exam::converter::converter_factory::getConverter(exam::converter::converter_factory::converter_type::lowercase);
-
-    EXPECT_TRUE(converter != nullptr);
-    EXPECT_TRUE(converter->encode("hi") == "44 444");
-    EXPECT_TRUE(converter->encode("yes") == "999337777");
-    EXPECT_TRUE(converter->encode("hello world") == "4433555 555666096667775553");
-}
+    namespace validator
+    {
 //-------------------------------------------------------------------------//
-#endif // __GTEST_CONVERTER_H_A3CFE15C_F664_4134_991E_27844C1A9BC4__
+        class abstract_validator : public common::validatable
+        {
+        public:
+            /**
+             * Validates a text.
+             * @param lineNo [in] - A line number.
+             * @param text [in] - A text.
+             * @throw std::invalid_argument - A text is invalid.
+             */
+            virtual auto validate(unsigned lineNo, const std::string & text) -> void override;
+        };
+//-------------------------------------------------------------------------//
+    }; // namespace validator
+}; // namespace exam
+//-------------------------------------------------------------------------//
+#endif //T9_SPELLING_ABSTRACT_VALIDATOR_H
