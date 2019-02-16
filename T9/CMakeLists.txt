@@ -14,4 +14,4 @@ if (BUILD_TESTING)
     add_subdirectory(tests)
 endif (BUILD_TESTING)
 
-add_executable(${PROJECT_NAME} ${SOURCE_FILES} src/library/converter/lowercase-converter.h src/library/common/convertable.h src/library/converter/lowercase-converter.cpp src/library/parser/file-stream.h src/library/parser/file-stream.cpp src/library/validator/small-validator.h src/library/common/validatable.h src/library/validator/abstract-validator.h src/library/validator/abstract-validator.cpp src/library/validator/small-validator.cpp src/library/validator/large-validator.cpp src/library/validator/validator-factory.h src/library/validator/validator-factory.cpp)
+add_executable(${PROJECT_NAME} ${SOURCE_FILES})
