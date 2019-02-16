@@ -60,10 +60,10 @@ int main(int argc, char * argv[])
                 // Validating params.
                 validator->validate(lineNo, line);
 
-                if (lineNo > 1)
+                if (lineNo > 0)
                 {
                     // Encoding a text into a sequence number.
-                    std::cout << "Case #" << lineNo - 1 << ": " << converter->encode(line) << std::endl;
+                    std::cout << "Case #" << lineNo << ": " << converter->encode(line) << std::endl;
                 }
                 return true;
             }

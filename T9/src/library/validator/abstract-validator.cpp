@@ -26,7 +26,7 @@ namespace exam
         {
             if (text.empty() != false) { throw (std::invalid_argument("No case found.")); }
 
-            if (lineNo == 1)
+            if (lineNo == 0)
             {
                 if (is_number_valid(text) != true) { throw (std::invalid_argument("The number of cases value is invalid. It must be integer.")); }
                 // Getting a count of cases.

@@ -51,7 +51,7 @@ namespace exam
                 // Reading a case as a line.
                 std::getline(stream, line);
                 // Informing about reading data.
-                if (onread(++lineNo, line) != true) { return; }
+                if (onread(lineNo++, line) != true) { return; }
             }
         }
 //-------------------------------------------------------------------------//
