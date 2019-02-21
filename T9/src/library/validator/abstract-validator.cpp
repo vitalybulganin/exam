@@ -16,7 +16,7 @@ namespace exam
                 for (const auto & symbol : number)
                 {
                     if (symbol == '-' || symbol == '+') { continue; }
-                    if (isdigit(symbol) != 1) { return false; }
+                    if (isdigit(symbol) > 0) { return false; }
                 }
                 return true;
             }

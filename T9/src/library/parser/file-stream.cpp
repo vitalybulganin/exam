@@ -9,20 +9,6 @@ namespace exam
     namespace parser
     {
 //-------------------------------------------------------------------------//
-        namespace
-        {
-            //!< Checks a string on a number.
-            auto is_number_valid(const std::string & number) -> bool
-            {
-                for (const auto & symbol : number)
-                {
-                    if (symbol == '-' || symbol == '+') { continue; }
-                    if (isdigit(symbol) != 1) { return false; }
-                }
-                return true;
-            }
-        }; // namespace
-//-------------------------------------------------------------------------//
         file_stream::file_stream(const std::string & fname) : fileName(fname), stream(fname.c_str())
         {
             if (this->stream.is_open() != true)
